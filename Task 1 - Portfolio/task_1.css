@@ -147,6 +147,7 @@ main {
 }
 #head_right_main {
     margin-bottom: 15px;
+    text-align: center;
 }
 .list1_box_right_main {
     position: absolute;
@@ -222,6 +223,9 @@ footer {
     height: 40px;
     border-radius: 50px;
 }
+#left_main > h2 {
+    text-align: center;
+}
 @media (max-width: 900px) {
     nav,
     main {
@@ -241,5 +245,14 @@ footer {
 
     footer {
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 425px) {
+    #list_profile_center_main {
+        grid-template-columns: 1fr;
+    }
+    #profile_center_main {
+        flex-direction: column;
+        gap: 10px;
     }
 }
