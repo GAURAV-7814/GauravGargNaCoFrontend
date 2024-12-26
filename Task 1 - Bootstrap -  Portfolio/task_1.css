@@ -1,0 +1,257 @@
+/* Apply a global reset for all elements to ensure consistent styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Styling for the header section */
+header {
+    padding: 10px 0px;
+    width: 100%;
+    background: #4da0b0;
+    background: -webkit-linear-gradient(to right, #d39d38, #4da0b0);
+    background: linear-gradient(to right, #d39d38, #4da0b0);
+}
+/* Navigation bar styling */
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+/* Background styling for the entire page */
+body {
+    background: #ba5370; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to bottom,
+        #f4e2d8,
+        #ba5370
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to bottom,
+        #f4e2d8,
+        #ba5370
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* Styling for circular icons in navigation */
+.icons {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+/* Flexbox layout for navigation items */
+.left_right_nav {
+    display: flex;
+    align-items: center;
+    /* width: 10vw; */
+}
+/* Styling for navigation links */
+#list_nav {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+/* Styling for navigation images */
+.img_nav {
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
+}
+/* General styling for the main section */
+main {
+    margin: 10px 0px;
+}
+/* Styling for the left panel in the main section */
+#left_main {
+    border: 1px solid black;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+    margin-right: 15px;
+}
+/* Styling for the center panel in the main section */
+#center_main {
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+/* Styling for the profile image */
+#profile_img {
+    width: 150px;
+    height: 150px;
+}
+/* Flexbox layout for the profile section */
+#profile_center_main {
+    padding: 25px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* Styling for boxes in the profile section */
+.box_profile_center_main {
+    border: 2px solid black;
+    padding: 8px;
+    border-radius: 10px;
+}
+/* Center alignment for the profile name */
+#name_profile_center_main {
+    display: flex;
+    justify-content: center;
+}
+/* Grid layout for profile details */
+#list_profile_center_main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+/* Additional padding for sublists */
+.info_profile_center_main {
+    padding: 20px;
+}
+.interior_list_profile_center_main {
+    padding-left: 25px;
+}
+#img_left_main {
+    width: 50px;
+    height: 50px;
+}
+/* Styling for the right panel in the main section */
+#right_main {
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+    padding: 25px;
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    margin-left: 15px;
+
+    align-items: center;
+}
+
+.box1_right_main {
+    width: 100%;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    height: 20px;
+    margin-top: 25px;
+}
+
+.box2_right_main {
+    width: 100%;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    height: 150px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#head_right_main {
+    margin-bottom: 15px;
+}
+.list1_box_right_main {
+    position: absolute;
+    padding-left: 25px;
+}
+.list2_box_right_main {
+    position: absolute;
+    padding-left: 45px;
+}
+.list3_box_right_main {
+    padding-left: 65px;
+}
+.img_box2_right_main {
+    height: 90px;
+    width: 90px;
+}
+/* Styling for the footer section */
+footer {
+    margin-bottom: 5px;
+}
+#left_footer {
+    box-shadow: 0px 0px 5px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#center_footer {
+    box-shadow: 0px 0px 5px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#right_footer {
+    box-shadow: 0px 0px 5px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#heading_center_footer {
+    text-align: center;
+}
+#list_center_footer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+#project_right_footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.container_project_right_footer {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.img_container_project_right_footer {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+/* Responsive design for screens narrower than 1404px */
+@media (max-width: 1404px) {
+    .box2_right_main {
+        height: 300px;
+        flex-direction: column;
+        
+    }
+}
+/* Responsive design for screens narrower than 1250px */
+@media (max-width: 1250px) {
+    #list_profile_center_main {
+        grid-template-columns: 1fr;
+        
+    }
+}
+/* Responsive design for screens narrower than 992px */
+@media (max-width: 992px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
