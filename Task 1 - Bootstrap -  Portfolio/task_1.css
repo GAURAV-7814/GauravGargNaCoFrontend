@@ -19,6 +19,7 @@ nav {
 }
 /* Background styling for the entire page */
 body {
+    overflow-x: clip;
     background: #ba5370; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to bottom,
