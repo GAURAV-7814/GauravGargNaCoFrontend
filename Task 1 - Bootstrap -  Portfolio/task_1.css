@@ -6,18 +6,11 @@
 }
 /* Background styling for the entire page */
 body {
-    overflow-x: clip;
-    background: #ba5370; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to bottom,
-        #f4e2d8,
-        #ba5370
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to bottom,
-        #f4e2d8,
-        #ba5370
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #f4e2d8, #ba5370);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -30,7 +23,11 @@ header {
 
 /* Navigation bar styling */
 nav.navbar {
-    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,7 +40,6 @@ nav.navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
 }
 
 /* Flexbox layout for navigation items */
@@ -58,7 +54,7 @@ nav.navbar {
     color: black;
     font-size: 20px;
     font-weight: 500;
-    margin-right: 10px;
+    margin-right: 15px;
     transition: color 0.3s ease;
 }
 
@@ -81,38 +77,50 @@ nav.navbar {
 
 /* General styling for the main section */
 main {
-    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    flex-grow: 1;
 }
-/* Styling for the left panel in the main section */
-#left_main {
+
+#left_main,
+#center_main,
+#right_main {
     border: 1px solid black;
-    box-shadow: 0px 0px 5px black;
     border-radius: 5px;
-    padding: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    gap: 15px;
-    margin-right: 15px;
+    flex: 1 1 30%; /* Flexible width with a minimum size */
+    max-width: 400px; /* Prevent panels from growing too large */
 }
-/* Styling for the center panel in the main section */
-#center_main {
-    box-shadow: 0px 0px 5px black;
-    border-radius: 5px;
+#personal_content {
+    margin-top: 0; /* Remove any extra space at the top */
+    padding: 15px; /* Add consistent padding */
     border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; /* Optional for better visibility */
 }
 /* Styling for the profile image */
 #profile_img {
     width: 150px;
     height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 /* Flexbox layout for the profile section */
 #profile_center_main {
-    padding: 25px 0px;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 15px;
+    padding: 20px;
 }
 /* Styling for boxes in the profile section */
 .box_profile_center_main {
@@ -127,9 +135,8 @@ main {
 }
 /* Grid layout for profile details */
 #list_profile_center_main {
-    padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
 }
 /* Additional padding for sublists */
@@ -143,18 +150,7 @@ main {
     width: 50px;
     height: 50px;
 }
-/* Styling for the right panel in the main section */
-#right_main {
-    box-shadow: 0px 0px 5px black;
-    border-radius: 5px;
-    padding: 25px;
-    display: flex;
-    border: 1px solid black;
-    flex-direction: column;
-    margin-left: 15px;
 
-    align-items: center;
-}
 
 .box1_right_main {
     width: 100%;
@@ -199,40 +195,26 @@ main {
 }
 /* Styling for the footer section */
 footer {
-    margin-bottom: 5px;
-}
-#left_footer {
-    box-shadow: 0px 0px 5px black;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-right: 15px;
-    padding: 25px;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#center_footer {
-    box-shadow: 0px 0px 5px black;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 15px;
+    background: #f4e2d8;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
+
+#left_footer,
+#center_footer,
 #right_footer {
-    box-shadow: 0px 0px 5px black;
     border: 1px solid black;
     border-radius: 5px;
-    margin-left: 15px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    flex: 1 1 30%; /* Flexible width with a minimum size */
+    max-width: 400px;
 }
-#heading_center_footer {
+
+#heading_footer {
     text-align: center;
 }
 #list_center_footer {
@@ -257,16 +239,22 @@ footer {
     border-radius: 50px;
 }
 /* Responsive design for screens narrower than 1404px */
-@media (max-width: 1404px) {
+@media (max-width: 1440px) {
     .box2_right_main {
         height: 300px;
         flex-direction: column;
+    }
+    .active {
+        display: none;
     }
 }
 /* Responsive design for screens narrower than 1250px */
 @media (max-width: 1250px) {
     #list_profile_center_main {
         grid-template-columns: 1fr;
+    }
+    .active {
+        display: none;
     }
 }
 /* Responsive design for screens narrower than 992px */
@@ -300,11 +288,37 @@ footer {
     #list_nav {
         font-size: 18px;
     }
+    .active {
+        display: none;
+    }
 }
 /* Responsive design for screens narrower than 400px */
 @media (max-width: 400px) {
     #profile_center_main {
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 576px) {
+    header,
+    footer {
+        text-align: center;
+    }
+
+    nav.navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .icons {
+        width: 25px;
+        height: 25px;
+    }
+
+    #list_nav {
+        font-size: 16px;
     }
 }
