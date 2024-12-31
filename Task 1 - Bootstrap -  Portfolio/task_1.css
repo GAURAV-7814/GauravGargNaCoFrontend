@@ -95,11 +95,16 @@ main {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: space-between;
     align-items: center;
-    flex: 1 1 30%; /* Flexible width with a minimum size */
-    max-width: 400px; /* Prevent panels from growing too large */
+    height: auto; /* Let Bootstrap handle height */
+    flex: 1; /* Ensure equal height */
 }
+
+.row {
+    justify-content: center;
+}
+
 #personal_content {
     margin-top: 0; /* Remove any extra space at the top */
     padding: 15px; /* Add consistent padding */
@@ -118,6 +123,7 @@ main {
 /* Flexbox layout for the profile section */
 #profile_center_main {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 15px;
     padding: 20px;
@@ -150,7 +156,6 @@ main {
     width: 50px;
     height: 50px;
 }
-
 
 .box1_right_main {
     width: 100%;
@@ -244,17 +249,11 @@ footer {
         height: 300px;
         flex-direction: column;
     }
-    .active {
-        display: none;
-    }
 }
 /* Responsive design for screens narrower than 1250px */
 @media (max-width: 1250px) {
     #list_profile_center_main {
         grid-template-columns: 1fr;
-    }
-    .active {
-        display: none;
     }
 }
 /* Responsive design for screens narrower than 992px */
@@ -288,15 +287,20 @@ footer {
     #list_nav {
         font-size: 18px;
     }
-    .active {
-        display: none;
-    }
 }
 /* Responsive design for screens narrower than 400px */
 @media (max-width: 400px) {
     #profile_center_main {
         flex-direction: column;
         gap: 20px;
+    }
+}
+@media (max-width: 780px) {
+    .heading_navbar {
+        text-align: center;
+    }
+    .links_navbar{
+        margin: auto;
     }
 }
 
@@ -320,5 +324,34 @@ footer {
 
     #list_nav {
         font-size: 16px;
+    }
+}
+/* Ensure the footer is responsive */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Add spacing between columns */
+}
+
+/* Default layout (columns side by side) */
+footer .col-lg-4,
+footer .col-lg-3 {
+    flex: 1;
+    max-width: 33.33%; /* Allow columns to take equal width by default */
+}
+
+/* Responsive design: Stack all columns vertically for smaller screens */
+@media (max-width: 500px) {
+    footer {
+        flex-direction: column;
+        align-items: center; /* Stack elements vertically */
+    }
+    footer .col-lg-4,
+    footer .col-lg-3 {
+        max-width: 100%; /* Columns span full width */
+    }
+    .mx-2,
+    .ml {
+        margin-left: 0 !important; /* Reset left margins for uniform spacing */
     }
 }
