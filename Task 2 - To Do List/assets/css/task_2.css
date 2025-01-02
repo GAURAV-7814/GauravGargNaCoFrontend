@@ -1,0 +1,133 @@
+/* Resetting margin and padding for all elements and setting box-sizing to border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the navigation bar */
+#navbar {
+    width: 100vw; /* Full width of the viewport */
+    height: 7vh; /* 7% of the viewport height */
+    background: #a770ef; /* Fallback color for older browsers */
+    background: -webkit-linear-gradient(
+        to bottom,
+        #fdb99b,
+        #cf8bf3,
+        #a770ef
+    ); /* Gradient for older WebKit browsers */
+    background: linear-gradient(
+        to bottom,
+        #fdb99b,
+        #cf8bf3,
+        #a770ef
+    ); /* Modern gradient styling */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Styling the upper section of the main content */
+#upper_main {
+    width: 100%; /* Full width */
+    height: 28vh; /* 28% of the viewport height */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 50px; /* Space between child elements */
+}
+
+/* Styling the input field */
+#input_field {
+    width: 40vw; /* 40% of the viewport width */
+    height: 5vh; /* 5% of the viewport height */
+    border-radius: 7px; /* Rounded corners */
+    padding: 0 20px; /* Horizontal padding */
+}
+
+/* Styling buttons in different sections */
+#button_upper_main,
+#button1_lower_main,
+#button2_lower_main {
+    height: 5vh; /* Uniform height for all buttons */
+    background-color: blueviolet; /* Button color */
+    padding: 0 10px; /* Horizontal padding */
+    color: white; /* Button text color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Styling the lower section of the main content */
+#lower_main {
+    width: 100%; /* Full width */
+    height: 60vh; /* 60% of the viewport height */
+    display: flex; /* Flexbox layout */
+    justify-content: space-evenly; /* Equal space between elements */
+    align-items: center; /* Center elements vertically */
+}
+
+/* Styling individual containers in the lower section */
+#container1_main,
+#container2_main {
+    border: 2px solid black; /* Border styling */
+    width: 30vw; /* 30% of the viewport width */
+    height: 50vh; /* 50% of the viewport height */
+    overflow: scroll; /* Enable scrolling when content overflows */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    word-break: break-word; /* Break long words to prevent overflow */
+}
+
+/* Styling for content in the lower section */
+.content_lower_main {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 30px; /* Space between child elements */
+}
+
+/* Placeholder text styling for input fields */
+input[type="text"]::placeholder {
+    font: 800; /* Bold font weight */
+    color: black; /* Placeholder text color */
+    font-size: medium; /* Medium font size */
+    text-align: center; /* Center the placeholder text */
+}
+
+/* Responsive design adjustments for screens with a max width of 500px */
+@media (max-width: 500px) {
+    /* Adjusting layout for upper and lower main sections */
+    #lower_main,
+    #upper_main {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Reduce spacing */
+    }
+
+    /* Adjusting widths for smaller screens */
+    #input_field,
+    #container1_main,
+    #container2_main {
+        width: 70vw; /* 70% of the viewport width */
+    }
+
+    /* Adding margin to the second container for better spacing */
+    #container2_main {
+        margin-bottom: 30px; /* Extra bottom margin */
+    }
+
+    /* Adding content before specific buttons */
+    #button1_lower_main::before {
+        content: "MOVE TO BOTTOM ⇊"; /* Text for the first button */
+    }
+    #button2_lower_main::before {
+        content: "MOVE TO TOP ⇈"; /* Text for the second button */
+    }
+
+    /* Hiding preformatted text elements */
+    pre {
+        display: none;
+    }
+
+    /* Adding margin to the main element */
+    main {
+        margin-bottom: 10px;
+    }
+}
