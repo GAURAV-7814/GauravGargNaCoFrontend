@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Specifies the character encoding for the document -->
+        <!-- Set character encoding to UTF-8 for proper text rendering -->
         <meta charset="UTF-8" />
-        <!-- Ensures the page is responsive and adjusts to the width of the device -->
+        <!-- Ensure the page is responsive on different devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Adds a favicon to the webpage -->
-        <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon" />
-        <!-- Links the external CSS file for styling -->
+        <!-- Add a favicon to the browser tab -->
+        <link
+            rel="shortcut icon"
+            href="./assets/images/icon.png"
+            type="image/x-icon"
+        />
+        <!-- Link to the external CSS file for styling -->
         <link rel="stylesheet" href="./assets/css/task_2.css" />
-        <!-- Sets the title of the webpage displayed in the browser tab -->
+        <!-- Title of the web page -->
         <title>Task 2</title>
     </head>
     <body>
-        <!-- Header section containing the navigation bar -->
+        <!-- Header section containing the title and clear button -->
         <header>
             <nav id="navbar">
-                <!-- Main heading for the task list application -->
                 <h1>TASK LIST</h1>
+                <!-- Button to clear all tasks and local storage -->
+                <button id="button_navbar">&#10006 CLEAR DATA &#10006</button>
             </nav>
         </header>
         <main>
-            <!-- Upper section of the main content where the user adds new items -->
+            <!-- Section for adding new tasks -->
             <div id="upper_main">
-                <!-- Input field for entering the name of a new task -->
+                <!-- Input field for task name -->
                 <input id="input_field" type="text" placeholder="Item Name" />
-                <!-- Button to add the entered item to the to-do list -->
+                <!-- Button to add task to the "To-Do" list -->
                 <button id="button_upper_main">ADD ITEM</button>
             </div>
-            <!-- Lower section containing the to-do list, controls, and completed list -->
+            <!-- Section for managing and displaying tasks -->
             <div id="lower_main">
-                <!-- Section displaying the to-do list -->
+                <!-- To-Do list section -->
                 <div class="content_lower_main">
                     <h2>To-Do List</h2>
-                    <!-- Container for dynamically adding to-do items -->
+                    <!-- Container for displaying tasks in the "To-Do" list -->
                     <div id="container1_main"></div>
                 </div>
-                <!-- Section with buttons for moving items between lists -->
+                <!-- Buttons to control task movement and removal -->
                 <div class="content_lower_main">
+                    <!-- Button to move tasks to the "Completed" list -->
                     <button id="button1_lower_main">
-                        <!-- Button to move items from the to-do list to the completed list -->
                         <pre>MOVE TO RIGHT --→</pre>
                     </button>
-                    <button id="button2_lower_main">
-                        <!-- Button to move items from the completed list back to the to-do list -->
+                    <!-- Button to remove selected tasks -->
+                    <button id="button2_lower_main">&#10006 REMOVE &#10006</button>
+                    <!-- Button to move tasks back to the "To-Do" list -->
+                    <button id="button3_lower_main">
                         <pre>←--  MOVE TO LEFT</pre>
                     </button>
                 </div>
-                <!-- Section displaying the completed list -->
+                <!-- Completed list section -->
                 <div class="content_lower_main">
                     <h2>Completed List</h2>
-                    <!-- Container for dynamically adding completed items -->
+                    <!-- Container for displaying tasks in the "Completed" list -->
                     <div id="container2_main"></div>
                 </div>
             </div>
         </main>
-        <!-- Links the external JavaScript file for interactivity -->
+        <!-- Link to the external JavaScript file for functionality -->
         <script src="./assets/javascript/task_2.js"></script>
     </body>
 </html>
