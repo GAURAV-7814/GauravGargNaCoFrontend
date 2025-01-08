@@ -26,7 +26,7 @@ function myfunc() {
                 notification.style.transform = "translate(0)";
                 setTimeout(() => {
                     notification.style.transform = "translate(300px)";
-                }, 5000);
+                }, 10000);
                 // Prevent duplicate tasks
                 count++;
                 return;
@@ -44,7 +44,7 @@ function myfunc() {
                 notification.style.transform = "translate(0)";
                 setTimeout(() => {
                     notification.style.transform = "translate(400px)";
-                }, 5000); // Prevent duplicate tasks
+                }, 10000); // Prevent duplicate tasks
                 count++;
                 return;
             }
@@ -59,7 +59,7 @@ function myfunc() {
             notification.style.transform = "translate(0)";
             setTimeout(() => {
                 notification.style.transform = "translate(400px)";
-            }, 5000);
+            }, 10000);
             to_do_array.push(data); // Add task to "to-do" array if no duplicates
         }
         document.getElementById("input_field").value = ""; // Clear input field
@@ -98,7 +98,7 @@ function myfunc1() {
             notification.style.transform = "translate(0)";
             setTimeout(() => {
                 notification.style.transform = "translate(400px)";
-            }, 5000);
+            }, 10000);
             let data = to_do_array.splice(i, 1); // Remove task from "to-do"
             complete_array.push(data); // Add task to "completed"
         } else {
@@ -161,7 +161,7 @@ function myfunc2() {
     notification.style.transform = "translate(0)";
     setTimeout(() => {
         notification.style.transform = "translate(300px)";
-    }, 5000);
+    }, 10000);
     load_to_do_list(); // Refresh "to-do" list UI
     load_complete_list(); // Refresh "completed" list UI
     addEvents(); // Add event listeners to updated tasks
@@ -196,7 +196,7 @@ function myfunc3() {
             notification.style.transform = "translate(0)";
             setTimeout(() => {
                 notification.style.transform = "translate(300px)";
-            }, 5000);
+            }, 10000);
             let data = complete_array.splice(i, 1); // Remove task from "completed"
             to_do_array.push(data); // Add task to "to-do"
         } else {
@@ -325,7 +325,7 @@ function reset() {
         notification.style.transform = "translate(0)";
         setTimeout(() => {
             notification.style.transform = "translate(300px)";
-        }, 5000);
+        }, 10000);
         load_to_do_list(); // Refresh "to-do" list UI
         load_complete_list(); // Refresh "completed" list UI
         addEvents(); // Add event listeners to tasks
