@@ -31,7 +31,20 @@
                 <!-- Input field for task name -->
                 <input id="input_field" type="text" placeholder="Item Name" />
                 <!-- Button to add task to the "To-Do" list -->
-                <button id="button_upper_main">ADD ITEM</button>
+                <button id="button1_upper_main">ADD ITEM</button>
+                <div id="notification_upper_main">
+                    <div id="toaster_upper_main">
+                        <button id="button1_toaster_upper_main" disabled>
+                        <img id="image1_toaster_upper_main" src="./assets/images/undo.png" alt="">
+                    </button>
+                    <div id="content_toaster_upper_main">
+                        Item Added Successfully.
+                    </div>
+                    <button id="button2_toaster_upper_main">
+                        <img id="image2_toaster_upper_main" src="./assets/images/close.png" alt="">
+                    </button>
+                    </div>
+                </div>
             </div>
             <!-- Section for managing and displaying tasks -->
             <div id="lower_main">
@@ -44,7 +57,7 @@
                 <!-- Buttons to control task movement and removal -->
                 <div class="content_lower_main">
                     <!-- Button to move tasks to the "Completed" list -->
-                    <button id="button1_lower_main">
+                    <button title="MOVE TO RIGHT BUTTON" id="button1_lower_main">
                         <pre>MOVE TO RIGHT --→</pre>
                     </button>
                     <!-- Button to remove selected tasks -->
