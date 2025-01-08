@@ -23,6 +23,8 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    position: relative;
+
 }
 
 /* Input field styling with rounded corners and padding */
@@ -33,17 +35,54 @@
     padding: 0 20px;
 }
 
+#notification_upper_main {
+    background-color: rgb(0, 255, 106);
+    border: 1px solid black;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 1vh;
+    right: 1vh;
+    transform: translate(400px);
+    transition: 1s;
+}
+
+#toaster_upper_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
 /* General button styling with uniform height, colors, and rounded corners */
 #button_navbar,
-#button_upper_main,
+#button1_upper_main,
 #button1_lower_main,
 #button2_lower_main,
 #button3_lower_main {
     height: 5vh;
     background-color: blueviolet;
+    cursor: pointer;
     padding: 0 10px;
     color: white;
     border-radius: 10px;
+    border-color: transparent;
+}
+
+#button1_toaster_upper_main,
+#button2_toaster_upper_main,
+#image1_toaster_upper_main,
+#image2_toaster_upper_main {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#content_toaster_upper_main{
+    cursor: default;
 }
 
 /* Specific button colors for remove and clear data buttons */
