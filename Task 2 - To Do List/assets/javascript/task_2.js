@@ -3,6 +3,8 @@ let to_do_array = [];
 let complete_array = [];
 let array1 = [];
 let array2 = [];
+let to_do_deleted_array = [];
+let complete_deleted_array = [];
 
 // Add a new task to the "to-do" list
 function myfunc() {
@@ -14,19 +16,50 @@ function myfunc() {
         let count = 0;
         to_do_array.forEach((item) => {
             if (item == data) {
-                alert("Item already exists"); // Prevent duplicate tasks
+                let notification = document.getElementById(
+                    "notification_upper_main"
+                );
+                document.getElementById(
+                    "content_toaster_upper_main"
+                ).textContent = "Item Already Exists.";
+                notification.style.backgroundColor = "red";
+                notification.style.transform = "translate(0)";
+                setTimeout(() => {
+                    notification.style.transform = "translate(300px)";
+                }, 5000);
+                // Prevent duplicate tasks
                 count++;
                 return;
             }
         });
         complete_array.forEach((item) => {
             if (item == data) {
-                alert("Item already exists"); // Prevent duplicate tasks
+                let notification = document.getElementById(
+                    "notification_upper_main"
+                );
+                document.getElementById(
+                    "content_toaster_upper_main"
+                ).textContent = "Item Already Exists.";
+                notification.style.backgroundColor = "red";
+                notification.style.transform = "translate(0)";
+                setTimeout(() => {
+                    notification.style.transform = "translate(400px)";
+                }, 5000); // Prevent duplicate tasks
                 count++;
                 return;
             }
         });
         if (count == 0) {
+            let notification = document.getElementById(
+                "notification_upper_main"
+            );
+            document.getElementById("content_toaster_upper_main").textContent =
+                "Item Is Added.";
+            notification.style.backgroundColor = "rgb(0, 255, 0)";
+            notification.style.transform = "translate(0)";
+            setTimeout(() => {
+                notification.style.transform = "translate(400px)";
+            }, 5000);
             to_do_array.push(data); // Add task to "to-do" array if no duplicates
         }
         document.getElementById("input_field").value = ""; // Clear input field
@@ -56,6 +89,16 @@ function myfunc1() {
     }
     array1.forEach((item) => {
         if (item == 1) {
+            let notification = document.getElementById(
+                "notification_upper_main"
+            );
+            document.getElementById("content_toaster_upper_main").textContent =
+                "Item Is Shifted to Completed  List.";
+            notification.style.backgroundColor = "rgb(0, 255, 0)";
+            notification.style.transform = "translate(0)";
+            setTimeout(() => {
+                notification.style.transform = "translate(400px)";
+            }, 5000);
             let data = to_do_array.splice(i, 1); // Remove task from "to-do"
             complete_array.push(data); // Add task to "completed"
         } else {
@@ -70,6 +113,8 @@ function myfunc1() {
 
 // Remove selected tasks from both "to-do" and "completed"
 function myfunc2() {
+    to_do_deleted_array = [];
+    complete_deleted_array = [];
     if (to_do_array.length == 0 && complete_array.length == 0) {
         alert("No tasks available to remove"); // Notify user if lists are empty
         return;
@@ -92,7 +137,8 @@ function myfunc2() {
     let i = 0;
     array1.forEach((item) => {
         if (item == 1) {
-            to_do_array.splice(i, 1); // Remove task from "to-do"
+            let data = to_do_array.splice(i, 1);
+            to_do_deleted_array.push(data); // Remove task from "to-do"
         } else {
             i = i + 1;
         }
@@ -100,11 +146,22 @@ function myfunc2() {
     i = 0;
     array2.forEach((item) => {
         if (item == 1) {
-            complete_array.splice(i, 1); // Remove task from "completed"
+            let data = complete_array.splice(i, 1); // Remove task from "completed"
+            complete_deleted_array.push(data);
         } else {
             i = i + 1;
         }
     });
+    document.getElementById("button1_toaster_upper_main").disabled = false;
+    document.getElementById("button1_toaster_upper_main").style.cursor = "pointer";
+    let notification = document.getElementById("notification_upper_main");
+    document.getElementById("content_toaster_upper_main").textContent =
+        "Item Is Removed.";
+    notification.style.backgroundColor = "red";
+    notification.style.transform = "translate(0)";
+    setTimeout(() => {
+        notification.style.transform = "translate(300px)";
+    }, 5000);
     load_to_do_list(); // Refresh "to-do" list UI
     load_complete_list(); // Refresh "completed" list UI
     addEvents(); // Add event listeners to updated tasks
@@ -130,6 +187,16 @@ function myfunc3() {
     }
     array2.forEach((item) => {
         if (item == 1) {
+            let notification = document.getElementById(
+                "notification_upper_main"
+            );
+            document.getElementById("content_toaster_upper_main").textContent =
+                "Item Is Shifted to To-Do List.";
+            notification.style.backgroundColor = "rgb(0, 255, 0)";
+            notification.style.transform = "translate(0)";
+            setTimeout(() => {
+                notification.style.transform = "translate(300px)";
+            }, 5000);
             let data = complete_array.splice(i, 1); // Remove task from "completed"
             to_do_array.push(data); // Add task to "to-do"
         } else {
@@ -251,15 +318,43 @@ function reset() {
         localStorage.clear(); // Clear local storage
         to_do_array = []; // Reset "to-do" array
         complete_array = []; // Reset "completed" array
+        let notification = document.getElementById("notification_upper_main");
+        document.getElementById("content_toaster_upper_main").textContent =
+            "Data is Cleared.";
+        notification.style.backgroundColor = "red";
+        notification.style.transform = "translate(0)";
+        setTimeout(() => {
+            notification.style.transform = "translate(300px)";
+        }, 5000);
         load_to_do_list(); // Refresh "to-do" list UI
         load_complete_list(); // Refresh "completed" list UI
         addEvents(); // Add event listeners to tasks
     }
 }
 
+function close_notification() {
+    let notification = document.getElementById("notification_upper_main");
+    notification.style.transform = "translate(400px)";
+}
+
+function undo_change() {
+    to_do_deleted_array.forEach((item) => {
+        to_do_array.push(item);
+        to_do_deleted_array.pop();
+    });
+    complete_deleted_array.forEach((item) => {
+        complete_array.push(item);
+        complete_deleted_array.pop();
+    });
+    load_to_do_list(); // Refresh "to-do" list UI
+    load_complete_list(); // Refresh "completed" list UI
+    addEvents(); // Add event listeners to tasks
+    save_local_storage(); // Save updated data to local storage
+}
+
 // Add event listeners to buttons
-let button_upper_main = document.getElementById("button_upper_main");
-button_upper_main.addEventListener("click", myfunc); // Add task to "to-do"
+let button1_upper_main = document.getElementById("button1_upper_main");
+button1_upper_main.addEventListener("click", myfunc); // Add task to "to-do"
 
 let button1_lower_main = document.getElementById("button1_lower_main");
 button1_lower_main.addEventListener("click", myfunc1); // Move task to "completed"
@@ -272,6 +367,16 @@ button3_lower_main.addEventListener("click", myfunc3); // Move task back to "to-
 
 let button_navbar = document.getElementById("button_navbar");
 button_navbar.addEventListener("click", reset); // Reset all tasks
+
+let button2_toaster_upper_main = document.getElementById(
+    "button2_toaster_upper_main"
+);
+button2_toaster_upper_main.addEventListener("click", close_notification);
+
+let button1_toaster_upper_main = document.getElementById(
+    "button1_toaster_upper_main"
+);
+button1_toaster_upper_main.addEventListener("click", undo_change);
 
 // Load tasks from local storage on page load
 load_local_storage();
