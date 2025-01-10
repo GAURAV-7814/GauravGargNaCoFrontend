@@ -16,50 +16,21 @@ function myfunc() {
         let count = 0;
         to_do_array.forEach((item) => {
             if (item == data) {
-                let notification = document.getElementById(
-                    "notification_upper_main"
-                );
-                document.getElementById(
-                    "content_toaster_upper_main"
-                ).textContent = "Item Already Exists.";
-                notification.style.backgroundColor = "red";
-                notification.style.transform = "translate(0)";
-                setTimeout(() => {
-                    notification.style.transform = "translate(300px)";
-                }, 10000);
                 // Prevent duplicate tasks
+                showToaster("Item Already Exists.", 3000);
                 count++;
                 return;
             }
         });
         complete_array.forEach((item) => {
             if (item == data) {
-                let notification = document.getElementById(
-                    "notification_upper_main"
-                );
-                document.getElementById(
-                    "content_toaster_upper_main"
-                ).textContent = "Item Already Exists.";
-                notification.style.backgroundColor = "red";
-                notification.style.transform = "translate(0)";
-                setTimeout(() => {
-                    notification.style.transform = "translate(400px)";
-                }, 10000); // Prevent duplicate tasks
+                showToaster("Item Already Exists.", 3000);
                 count++;
                 return;
             }
         });
         if (count == 0) {
-            let notification = document.getElementById(
-                "notification_upper_main"
-            );
-            document.getElementById("content_toaster_upper_main").textContent =
-                "Item Is Added.";
-            notification.style.backgroundColor = "rgb(0, 255, 0)";
-            notification.style.transform = "translate(0)";
-            setTimeout(() => {
-                notification.style.transform = "translate(400px)";
-            }, 10000);
+            showToaster("Item is Added.", 3000);
             to_do_array.push(data); // Add task to "to-do" array if no duplicates
         }
         document.getElementById("input_field").value = ""; // Clear input field
@@ -71,142 +42,107 @@ function myfunc() {
 
 // Move selected tasks from "to-do" to "completed"
 function myfunc1() {
-    if (to_do_array.length == 0) {
-        alert("No task to shift"); // Notify user if "to-do" list is empty
+    if (to_do_array.length === 0) {
+        alert("No tasks available to shift.");
         return;
     }
 
-    let count = 0;
-    let i = 0;
-    array1.forEach((item) => {
-        if (item == 1) {
-            count++;
-        }
+    let selected = [];
+    array1.forEach((item, i) => {
+        if (item === 1) selected.push(i);
     });
-    if (count == 0) {
-        alert("Select a Task to shift"); // Notify user if no task is selected
+
+    if (selected.length === 0) {
+        alert("Select a task to shift.");
         return;
     }
-    array1.forEach((item) => {
-        if (item == 1) {
-            let notification = document.getElementById(
-                "notification_upper_main"
-            );
-            document.getElementById("content_toaster_upper_main").textContent =
-                "Item Is Shifted to Completed  List.";
-            notification.style.backgroundColor = "rgb(0, 255, 0)";
-            notification.style.transform = "translate(0)";
-            setTimeout(() => {
-                notification.style.transform = "translate(400px)";
-            }, 10000);
-            let data = to_do_array.splice(i, 1); // Remove task from "to-do"
-            complete_array.push(data); // Add task to "completed"
-        } else {
-            i = i + 1;
+
+    selected.reverse().forEach((index) => {
+        let task = to_do_array.splice(index, 1)[0];
+        if (task) {
+            complete_array.push(task);
         }
     });
-    load_to_do_list(); // Refresh "to-do" list UI
-    load_complete_list(); // Refresh "completed" list UI
-    addEvents(); // Add event listeners to updated tasks
-    save_local_storage(); // Save updated data to local storage
+
+    showToaster("item is shifted to Completed.", 3000);
+
+    // Refresh UI and save to local storage
+    load_to_do_list();
+    load_complete_list();
+    addEvents();
+    save_local_storage();
 }
 
 // Remove selected tasks from both "to-do" and "completed"
 function myfunc2() {
     to_do_deleted_array = [];
     complete_deleted_array = [];
-    if (to_do_array.length == 0 && complete_array.length == 0) {
-        alert("No tasks available to remove"); // Notify user if lists are empty
+
+    if (to_do_array.length === 0 && complete_array.length === 0) {
+        alert("No tasks available to remove.");
         return;
     }
-    let count = 0;
-    array1.forEach((item) => {
-        if (item == 1) {
-            count++;
-        }
+
+    let selectedToDo = [];
+    let selectedComplete = [];
+    array1.forEach((item, i) => {
+        if (item === 1) selectedToDo.push(i);
     });
-    array2.forEach((item) => {
-        if (item == 1) {
-            count++;
-        }
+    array2.forEach((item, i) => {
+        if (item === 1) selectedComplete.push(i);
     });
-    if (count == 0) {
-        alert("Select a Task to Remove"); // Notify user if no task is selected
+
+    if (selectedToDo.length === 0 && selectedComplete.length === 0) {
+        alert("Select a task to remove.");
         return;
     }
-    let i = 0;
-    array1.forEach((item) => {
-        if (item == 1) {
-            let data = to_do_array.splice(i, 1);
-            to_do_deleted_array.push(data); // Remove task from "to-do"
-        } else {
-            i = i + 1;
-        }
+
+    // Remove tasks and store them in deleted arrays
+    selectedToDo.reverse().forEach((index) => {
+        to_do_deleted_array.push(to_do_array.splice(index, 1)[0]);
     });
-    i = 0;
-    array2.forEach((item) => {
-        if (item == 1) {
-            let data = complete_array.splice(i, 1); // Remove task from "completed"
-            complete_deleted_array.push(data);
-        } else {
-            i = i + 1;
-        }
+    selectedComplete.reverse().forEach((index) => {
+        complete_deleted_array.push(complete_array.splice(index, 1)[0]);
     });
-    document.getElementById("button1_toaster_upper_main").disabled = false;
-    document.getElementById("button1_toaster_upper_main").style.cursor = "pointer";
-    let notification = document.getElementById("notification_upper_main");
-    document.getElementById("content_toaster_upper_main").textContent =
-        "Item Is Removed.";
-    notification.style.backgroundColor = "red";
-    notification.style.transform = "translate(0)";
-    setTimeout(() => {
-        notification.style.transform = "translate(300px)";
-    }, 10000);
-    load_to_do_list(); // Refresh "to-do" list UI
-    load_complete_list(); // Refresh "completed" list UI
-    addEvents(); // Add event listeners to updated tasks
-    save_local_storage(); // Save updated data to local storage
+
+    showToaster("Task(s) removed. Undo available.", 5000, undo_button);
+
+    // Refresh UI and save to local storage
+    load_to_do_list();
+    load_complete_list();
+    addEvents();
+    save_local_storage();
 }
 
 // Move selected tasks from "completed" back to "to-do"
 function myfunc3() {
-    if (complete_array.length == 0) {
-        alert("No task to shift"); // Notify user if "completed" list is empty
+    if (complete_array.length === 0) {
+        alert("No task to shift back to To-Do.");
         return;
     }
-    let i = 0;
-    let count = 0;
-    array2.forEach((item) => {
-        if (item == 1) {
-            count++;
-        }
+
+    let selected = [];
+    array2.forEach((item, i) => {
+        if (item === 1) selected.push(i);
     });
-    if (count == 0) {
-        alert("Select a Task to shift"); // Notify user if no task is selected
+
+    if (selected.length === 0) {
+        alert("Select a task to shift.");
         return;
     }
-    array2.forEach((item) => {
-        if (item == 1) {
-            let notification = document.getElementById(
-                "notification_upper_main"
-            );
-            document.getElementById("content_toaster_upper_main").textContent =
-                "Item Is Shifted to To-Do List.";
-            notification.style.backgroundColor = "rgb(0, 255, 0)";
-            notification.style.transform = "translate(0)";
-            setTimeout(() => {
-                notification.style.transform = "translate(300px)";
-            }, 10000);
-            let data = complete_array.splice(i, 1); // Remove task from "completed"
-            to_do_array.push(data); // Add task to "to-do"
-        } else {
-            i = i + 1;
+
+    selected.reverse().forEach((index) => {
+        let task = complete_array.splice(index, 1)[0];
+        if (task) {
+            to_do_array.push(task);
         }
     });
-    load_to_do_list(); // Refresh "to-do" list UI
-    load_complete_list(); // Refresh "completed" list UI
-    addEvents(); // Add event listeners to updated tasks
-    save_local_storage(); // Save updated data to local storage
+
+    showToaster("item is shifted to To-Do list.", 3000);
+    load_to_do_list();
+    load_complete_list();
+    addEvents();
+    save_local_storage();
 }
 
 // Render the "to-do" list UI
@@ -297,18 +233,21 @@ function save_local_storage() {
 
 // Load tasks from local storage
 function load_local_storage() {
-    let storedToDo = localStorage.getItem("to_do_array");
-    let storedComplete = localStorage.getItem("complete_array");
-    if (storedToDo) {
-        to_do_array = JSON.parse(storedToDo); // Load "to-do" tasks
+    try {
+        let storedToDo = localStorage.getItem("to_do_array");
+        let storedComplete = localStorage.getItem("complete_array");
+
+        to_do_array = storedToDo ? JSON.parse(storedToDo) : [];
+        complete_array = storedComplete ? JSON.parse(storedComplete) : [];
+    } catch (e) {
+        console.error("Error loading data from local storage:", e);
+        to_do_array = [];
+        complete_array = [];
     }
-    if (storedComplete) {
-        complete_array = JSON.parse(storedComplete); // Load "completed" tasks
-    }
-    load_to_do_list(); // Refresh "to-do" list UI
-    load_complete_list(); // Refresh "completed" list UI
-    addEvents(); // Add event listeners to tasks
-    save_local_storage(); // Save updated data to local storage
+    load_to_do_list();
+    load_complete_list();
+    addEvents();
+    save_local_storage();
 }
 
 // Reset all tasks and clear local storage
@@ -317,39 +256,115 @@ function reset() {
     if (answer) {
         localStorage.clear(); // Clear local storage
         to_do_array = []; // Reset "to-do" array
-        complete_array = []; // Reset "completed" array
-        let notification = document.getElementById("notification_upper_main");
-        document.getElementById("content_toaster_upper_main").textContent =
-            "Data is Cleared.";
-        notification.style.backgroundColor = "red";
-        notification.style.transform = "translate(0)";
-        setTimeout(() => {
-            notification.style.transform = "translate(300px)";
-        }, 10000);
+        complete_array = [];
+        showToaster("Reset Done", 3000); // Reset "completed" array
         load_to_do_list(); // Refresh "to-do" list UI
         load_complete_list(); // Refresh "completed" list UI
         addEvents(); // Add event listeners to tasks
     }
 }
+let activeInterval = null; // Track the active interval
 
-function close_notification() {
-    let notification = document.getElementById("notification_upper_main");
-    notification.style.transform = "translate(400px)";
+function toggleButtons(state) {
+    // Get all buttons that should be disabled/enabled
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.disabled = !state; // Disable or enable based on the state
+        button.style.cursor = state ? "pointer" : "not-allowed"; // Visual feedback
+        button.style.opacity = state ? "1" : "0.6"; // Make disabled buttons appear dimmed
+    });
 }
 
-function undo_change() {
-    to_do_deleted_array.forEach((item) => {
-        to_do_array.push(item);
-        to_do_deleted_array.pop();
-    });
-    complete_deleted_array.forEach((item) => {
-        complete_array.push(item);
-        complete_deleted_array.pop();
-    });
-    load_to_do_list(); // Refresh "to-do" list UI
-    load_complete_list(); // Refresh "completed" list UI
-    addEvents(); // Add event listeners to tasks
-    save_local_storage(); // Save updated data to local storage
+function undo_button() {
+    // Restore tasks from deleted arrays
+    while (to_do_deleted_array.length > 0) {
+        const task = to_do_deleted_array.pop(); // Remove last element
+        if (task) {
+            to_do_array.push(task);
+        }
+        // Restore to "to-do" list
+    }
+
+    while (complete_deleted_array.length > 0) {
+        const task = complete_deleted_array.pop(); // Remove last element
+        if (task) {
+            complete_array.push(task);
+        } // Restore to "completed" list
+    }
+
+    // Refresh UI and save to local storage
+    load_to_do_list();
+    load_complete_list();
+    addEvents();
+    save_local_storage();
+}
+
+function showToaster(message, duration = 3000, undoCallback = null) {
+    const toaster = document.getElementById("toaster");
+    const toasterMessage = document.getElementById("toaster-message");
+    const toasterProgress = document.getElementById("toaster-progress");
+
+    toggleButtons(false);
+
+    // Clear any existing progress and reset
+    if (activeInterval) {
+        clearInterval(activeInterval);
+        activeInterval = null;
+    }
+
+    toasterProgress.innerHTML = ""; // Clear progress bar
+    const progressDiv = document.createElement("div");
+    progressDiv.style.width = "0%";
+    toasterProgress.appendChild(progressDiv);
+
+    // Set toaster message and display it
+    toasterMessage.textContent = message;
+    toaster.classList.remove("hidden");
+
+    // Add Undo button if undoCallback is provided
+    if (undoCallback) {
+        const undoButton = document.createElement("button");
+        undoButton.textContent = "UNDO";
+        undoButton.style.marginLeft = "10px";
+
+        undoButton.style.backgroundColor = "blueviolet";
+        undoButton.style.border = "none";
+        undoButton.style.cursor = "pointer";
+        undoButton.style.color = "black";
+        undoButton.style.borderRadius = "5px";
+        undoButton.addEventListener("click", () => {
+            undoCallback();
+            clearInterval(activeInterval);
+            toaster.classList.add("hidden");
+            toggleButtons(true); // Re-enable buttons
+        });
+        toasterMessage.appendChild(undoButton);
+    }
+
+    // Start the progress animation
+    const startTime = Date.now();
+    activeInterval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min((elapsed / duration) * 100, 100);
+        progressDiv.style.width = `${progress}%`;
+
+        if (progress >= 100) {
+            clearInterval(activeInterval);
+            activeInterval = null;
+            toaster.classList.add("hidden");
+            toggleButtons(true);
+        }
+    }, 50);
+
+    // Ensure the toaster hides after the full duration
+    setTimeout(() => {
+        if (activeInterval) {
+            clearInterval(activeInterval);
+            activeInterval = null;
+            toaster.classList.add("hidden");
+            toggleButtons(true);
+        }
+    }, duration);
 }
 
 // Add event listeners to buttons
@@ -367,16 +382,6 @@ button3_lower_main.addEventListener("click", myfunc3); // Move task back to "to-
 
 let button_navbar = document.getElementById("button_navbar");
 button_navbar.addEventListener("click", reset); // Reset all tasks
-
-let button2_toaster_upper_main = document.getElementById(
-    "button2_toaster_upper_main"
-);
-button2_toaster_upper_main.addEventListener("click", close_notification);
-
-let button1_toaster_upper_main = document.getElementById(
-    "button1_toaster_upper_main"
-);
-button1_toaster_upper_main.addEventListener("click", undo_change);
 
 // Load tasks from local storage on page load
 load_local_storage();
