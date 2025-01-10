@@ -32,19 +32,6 @@
                 <input id="input_field" type="text" placeholder="Item Name" />
                 <!-- Button to add task to the "To-Do" list -->
                 <button id="button1_upper_main">ADD ITEM</button>
-                <div id="notification_upper_main">
-                    <div id="toaster_upper_main">
-                        <button id="button1_toaster_upper_main" disabled>
-                        <img id="image1_toaster_upper_main" src="./assets/images/undo.png" alt="">
-                    </button>
-                    <div id="content_toaster_upper_main">
-                        Item Added Successfully.
-                    </div>
-                    <button id="button2_toaster_upper_main">
-                        <img id="image2_toaster_upper_main" src="./assets/images/close.png" alt="">
-                    </button>
-                    </div>
-                </div>
             </div>
             <!-- Section for managing and displaying tasks -->
             <div id="lower_main">
@@ -74,8 +61,14 @@
                     <div id="container2_main"></div>
                 </div>
             </div>
+            <div id="toaster" class="hidden">
+                <span id="toaster-message"></span>
+    <           <div id="toaster-progress"></div>
+            </div>
+
         </main>
         <!-- Link to the external JavaScript file for functionality -->
         <script src="./assets/javascript/task_2.js"></script>
     </body>
 </html>
+
