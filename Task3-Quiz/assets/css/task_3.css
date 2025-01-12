@@ -120,10 +120,6 @@
 }
 
 @media (max-width: 375px) {
-    #marks_criteria {
-        display: flex;
-        flex-direction: column;
-    }
     #container {
         height: auto;
         margin: 20px 0px;
