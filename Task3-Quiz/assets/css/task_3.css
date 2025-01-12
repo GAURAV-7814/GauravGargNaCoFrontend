@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#content {
+    width: 80%;
+    border: 1px solid black;
+    box-shadow: 0px 0px 5px black;
+    padding: 10px;
+}
+#upper_main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.upper_icons {
+    height: 12px;
+    width: 12px;
+}
+#marks_criteria {
+    display: flex;
+    gap: 5px;
+}
+#timer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#main_content {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    gap: 10px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.option {
+    border: 1px solid black;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: smaller;
+    background-color: rgb(223, 222, 222);
+}
+.option_hover:hover {
+    transform: scale(1.05);
+    transition: all 1s;
+}
+#button1_main_content {
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(112, 245, 59);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#button2_main_content {
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 138);
+    cursor: pointer;
+}
+#explanation {
+    display: none;
+}
+#answer_boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 10px;
+}
+.boxes {
+    font-size: x-small;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result {
+    height: 100vh;
+    /* width: 100vw; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#result_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    text-align: center;
+    margin: 10px;
+}
+
+#try_again_button {
+    background-color: rgb(155, 155, 255);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 375px) {
+    #marks_criteria {
+        display: flex;
+        flex-direction: column;
+    }
+    #container {
+        height: auto;
+        margin: 20px 0px;
+    }
+}
