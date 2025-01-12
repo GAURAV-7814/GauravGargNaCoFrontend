@@ -1004,7 +1004,11 @@ function next() {
                     submit();
                 }
                 break;
+                count++;
             }
+        }
+        if(count == 0){
+            submit();
         }
     } else {
         load(question_index + 1);
