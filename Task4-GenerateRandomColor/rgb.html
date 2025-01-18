@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Color Models</title>
+        <link rel="stylesheet" href="./assets/css/rgb.css" />
+        <link
+            rel="shortcut icon"
+            href="./assets/images/icon.png"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <div id="heading_navbar">
+                    <h2>Color Models</h2>
+                </div>
+                <div id="navbar_links">
+                    <a class="link" href="./index.html">Home</a>
+                    <a class="link" href="./rgb.html">RGB</a>
+                    <a class="link" href="./cmyb.html">CMY</a>
+                    <a class="link" href="./web-safe-color.html"
+                        >Web safe Colors</a
+                    >
+                    <a class="link" href="./contact.html">Contact</a>
+                    <a class="link" href="./about.html">About</a>
+                </div>
+                <div id="menu_container">
+                    <div id="hamburger">☰</div>
+                    <div id="hamburger_navbar_links">
+                        <a class="link" href="./index.html">Home</a>
+                        <a class="link" href="./rgb.html">RGB</a>
+                        <a class="link" href="./cmyb.html">CMY</a>
+                        <a class="link" href="./web-safe-color.html"
+                            >Web safe Colors</a
+                        >
+                        <a class="link" href="./contact.html">Contact</a>
+                        <a class="link" href="./about.html">About</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div id="main_content">
+                <div id="box1_main_content">
+                    <div id="heading_box1_main_content">
+                        <b
+                            ><span class="red_color">Red </span
+                            ><span class="green_color">Green </span
+                            ><span class="blue_color">Blue </span> (<span
+                                class="red_color"
+                                >R</span
+                            ><span class="green_color">G</span
+                            ><span class="blue_color">B</span>)</b
+                        >
+                    </div>
+                    <div id="data_box1_main_content">
+                        <div>
+                            <strong
+                                ><span class="red_color">R</span
+                                ><span class="green_color">G</span
+                                ><span class="blue_color">B</span></strong
+                            >
+                            is an
+                            <i>additive color projected light color model </i
+                            >where each color is stored in one byte.
+                        </div>
+                        <br />
+                        <div>
+                            All possible combinations of
+                            <strong
+                                ><span class="red_color">red</span>,
+                                <span class="green_color">green</span> </strong
+                            >and
+                            <strong
+                                ><span class="blue_color">blue</span> </strong
+                            >give 2<sup>24</sup>=16,777,216 different colors.
+                        </div>
+                        <br />
+                        <div>
+                            Starting with (<b
+                                ><span class="red_color">Red</span>,<span
+                                    class="green_color"
+                                    >Green</span
+                                >,<span class="blue_color">Blue</span></b
+                            >)=(<b
+                                ><span class="red_color">0</span>,<span
+                                    class="green_color"
+                                    >0</span
+                                >,<span class="blue_color">0</span></b
+                            >) (black), to which different color "lights" are
+                            <i>added</i> to produce visible colors.
+                        </div>
+                    </div>
+                </div>
+                <div id="box2_main_content">
+                    <div id="heading_box2_main_content">
+                        <b
+                            ><span class="red_color">Red </span
+                            ><span class="green_color">Green </span
+                            ><span class="blue_color">Blue </span> (<span
+                                class="red_color"
+                                >R</span
+                            ><span class="green_color">G</span
+                            ><span class="blue_color">B</span>)</b
+                        >
+                    </div>
+                    <div id="data_box2_main_content">
+                        <div id="select_heading_box2_main_content">
+                            Select
+                            <b
+                                ><span class="red_color">R</span
+                                ><span class="green_color">G</span
+                                ><span class="blue_color">B</span></b
+                            >
+                            values:
+                        </div>
+                        <div id="select_colors_box2_main_content">
+                            <span
+                                ><b><span class="red_color">Red</span>: </b
+                                ><select id="select_red_box2_main_content">
+                                    <option
+                                        disabled
+                                        selected
+                                        value
+                                    ></option></select
+                            ></span>
+                            <span
+                                ><b><span class="green_color">Green</span>: </b
+                                ><select id="select_green_box2_main_content">
+                                    <option
+                                        disabled
+                                        selected
+                                        value
+                                    ></option></select
+                            ></span>
+                            <span
+                                ><b><span class="blue_color">Blue</span>: </b
+                                ><select id="select_blue_box2_main_content">
+                                    <option
+                                        disabled
+                                        selected
+                                        value
+                                    ></option></select
+                            ></span>
+                        </div>
+                        <br />
+                        <div id="display_color_box2_main_content">
+                            <div class="column_display_color_box2_main_content">
+                                <span class="red_color">R</span
+                                ><span class="green_color">G</span
+                                ><span class="blue_color">B </span>Float Values
+                            </div>
+                            <div class="column_display_color_box2_main_content">
+                                <span class="red_color">R</span
+                                ><span class="green_color">G</span
+                                ><span class="blue_color">B </span> Hexadecimal
+                                Values
+                            </div>
+                            <div class="column_display_color_box2_main_content">
+                                Display
+                            </div>
+                        </div>
+                        <hr />
+                        <div id="display_color_box2_main_content">
+                            <div
+                                class="column_display_color_box2_main_content" id="cell1_rgb_display_color_box2_main_content"
+                            ></div>
+                            <div
+                                class="column_display_color_box2_main_content" id="cell2_rgb_display_color_box2_main_content"
+                            ></div>
+                            <div
+                                class="column_display_color_box2_main_content" id="cell3_rgb_display_color_box2_main_content"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="button_main">
+                <button id="random_color_generator">
+                    Generate Random Colors
+                </button>
+            </div>
+        </main>
+        <footer>
+            <div id="copyright">&#169 2025. Gaurav Garg. All Rights Reserved.</div>
+        </footer>
+
+        <script src="./assets/javascript/script.js"></script>
+    </body>
+</html>
