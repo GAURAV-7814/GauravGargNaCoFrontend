@@ -102,7 +102,7 @@ function displayWebsite() {
     data2.appendChild(heading);
     let website_link = document.createElement("a");
     website_link.setAttribute("href", "./index.html");
-    website_link.textContent = "www.goggle.com";
+    website_link.textContent = "Visit Color Models";
     website_link.style.color = "blue";
     data2.appendChild(website_link);
     data3.textContent = "";
