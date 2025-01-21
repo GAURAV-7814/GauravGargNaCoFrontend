@@ -1,0 +1,207 @@
+/* General styles for all elements */
+* {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    box-sizing: border-box; /* Include border and padding in width/height */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+/* Navbar styling */
+#navbar {
+    display: flex; /* Horizontal layout */
+    padding: 15px; /* Inner spacing */
+    justify-content: space-around; /* Space out items evenly */
+    background-color: purple; /* Purple background */
+    color: white; /* White text color */
+}
+
+/* Navbar heading styling */
+#heading_navbar {
+    display: flex; /* Flex layout */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger menu container (hidden by default) */
+#menu_container {
+    position: relative; /* Position for dropdown functionality */
+    display: none; /* Hidden by default */
+}
+
+/* Navbar links for larger screens */
+#navbar_links {
+    display: flex; /* Horizontal layout */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    gap: 30px; /* Space between links */
+}
+
+/* Hamburger menu dropdown styling */
+#hamburger_navbar_links {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Vertical layout for links */
+    gap: 15px; /* Space between links */
+    background-color: purple; /* Purple background */
+    position: absolute; /* Position dropdown relative to parent */
+    top: 40px; /* Distance from top */
+    right: 0; /* Align to the right */
+    padding: 10px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+    width: 150px; /* Dropdown width */
+    z-index: 1000; /* Ensure visibility over other elements */
+}
+
+/* Link styling */
+a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Flex layout for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger icon styling */
+#hamburger {
+    font-size: 25px; /* Font size for icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Body styling */
+body {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+}
+
+/* Main content styling */
+main {
+    min-height: 80vh; /* Minimum height of 80% viewport */
+    display: flex; /* Flex layout */
+    justify-content: space-around; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+/* Box 1 styling inside main content */
+#box1_main_content {
+    width: 40vw; /* 40% of viewport width */
+    border: 1px solid red; /* Red border */
+    min-height: 50vh; /* Minimum height of 50% viewport */
+}
+
+/* Heading inside Box 1 */
+#heading_box1_main_content {
+    padding: 20px; /* Inner spacing */
+    font-size: 30px; /* Large font size */
+    background-color: rgb(247, 189, 189); /* Light red background */
+    color: red; /* Red text color */
+}
+
+/* Data section inside Box 1 */
+#data_box1_main_content {
+    padding: 20px; /* Inner spacing */
+}
+
+/* Box 2 styling inside main content */
+#box2_main_content {
+    width: 40vw; /* 40% of viewport width */
+    border: 1px solid green; /* Green border */
+    min-height: 50vh; /* Minimum height of 50% viewport */
+}
+
+/* Heading inside Box 2 */
+#heading_box2_main_content {
+    padding: 20px; /* Inner spacing */
+    font-size: 30px; /* Large font size */
+    background-color: rgb(172, 255, 172); /* Light green background */
+    color: green; /* Green text color */
+}
+
+/* Data section inside Box 2 */
+#data_box2_main_content {
+    padding: 20px; /* Inner spacing */
+}
+
+/* Styling for heading in Box 2's color section */
+#select_heading_box2_main_content {
+    font-size: larger; /* Larger font size */
+}
+
+/* Styling for color selection section in Box 2 */
+#select_colors_box2_main_content {
+    display: flex; /* Horizontal layout */
+    gap: 30px; /* Space between items */
+}
+
+/* Display section for selected colors in Box 2 */
+#display_color_box2_main_content {
+    padding: 10px; /* Inner spacing */
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    background-color: rgb(179, 179, 254); /* Light blue background */
+}
+
+/* Individual color display box in Box 2 */
+.column_display_color_box2_main_content {
+    width: 33%; /* Equal width for each color box */
+    min-height: 5vh; /* Minimum height */
+    text-align: center; /* Center text */
+}
+
+/* Footer styling */
+footer {
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 10vh; /* 10% of viewport height */
+}
+
+/* Footer copyright section */
+#copyright {
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    padding: 5px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive styles for screens <= 650px */
+@media (max-width: 650px) {
+    /* Main content layout adjustment */
+    #data_main_content {
+        flex-direction: column; /* Vertical layout */
+        gap: 20px; /* Space between items */
+    }
+
+    /* Hide navbar links on smaller screens */
+    #navbar_links {
+        display: none;
+    }
+
+    /* Display menu container for hamburger menu */
+    #menu_container {
+        display: block;
+    }
+
+    /* Show dropdown links on hover */
+    #menu_container:hover #hamburger_navbar_links {
+        display: flex; /* Show links as flex layout */
+    }
+
+    /* Adjust main layout and gap for smaller screens */
+    main {
+        flex-direction: column; /* Vertical layout */
+        height: auto; /* Adjust height automatically */
+        gap: 20px; /* Space between items */
+    }
+
+    /* Adjust width for Box 2 on smaller screens */
+    #box2_main_content {
+        width: 80vw; /* 80% of viewport width */
+    }
+
+    /* Adjust width for Box 1 on smaller screens */
+    #box1_main_content {
+        width: 80vw; /* 80% of viewport width */
+    }
+
+    /* Add margin to navbar on smaller screens */
+    #navbar {
+        margin-bottom: 20px; /* Space below navbar */
+    }
+}

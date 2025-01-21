@@ -1,0 +1,164 @@
+/* General reset for all elements */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element size */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+/* Navbar styling */
+#navbar {
+    display: flex; /* Horizontal layout */
+    padding: 15px; /* Inner spacing */
+    justify-content: space-around; /* Space items evenly */
+    background-color: purple; /* Set background color to purple */
+    color: white; /* Set text color to white */
+}
+
+/* Navbar heading section */
+#heading_navbar {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger menu container (hidden by default) */
+#menu_container {
+    position: relative; /* Relative position for dropdown alignment */
+    display: none; /* Hidden by default */
+}
+
+/* Navbar links for larger screens */
+#navbar_links {
+    display: flex; /* Horizontal layout */
+    flex-wrap: wrap; /* Allow wrapping of items if needed */
+    gap: 30px; /* Space between links */
+}
+
+/* Dropdown menu for smaller screens */
+#hamburger_navbar_links {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Vertical layout */
+    gap: 15px; /* Space between links */
+    background-color: purple; /* Match navbar background */
+    position: absolute; /* Absolute position for dropdown */
+    top: 40px; /* Position dropdown 40px from top */
+    right: 0; /* Align dropdown to the right */
+    padding: 10px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+    width: 150px; /* Dropdown width */
+    z-index: 1000; /* Ensure dropdown appears above other elements */
+}
+
+/* Link styling */
+a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    display: flex; /* Flex layout for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger icon styling */
+#hamburger {
+    font-size: 25px; /* Large font size for visibility */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Body styling */
+body {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+}
+
+/* Main content container */
+main {
+    height: 80vh; /* 80% of viewport height */
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+/* Main content section */
+#main_content {
+    border: 1px solid rgb(53, 53, 162); /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    width: 90vw; /* 90% of viewport width */
+}
+
+/* Heading inside the main content section */
+#heading_main_content {
+    border-top-left-radius: 5px; /* Rounded top-left corner */
+    border-top-right-radius: 5px; /* Rounded top-right corner */
+    background-color: rgb(179, 179, 254); /* Light blue background */
+    color: rgb(53, 53, 162); /* Dark blue text color */
+    padding: 10px; /* Inner spacing */
+    padding-left: 30px; /* Additional left padding */
+    font-size: 20px; /* Medium font size */
+    font-weight: bold; /* Bold text */
+}
+
+/* Data section inside main content */
+#data_main_content {
+    padding: 40px; /* Inner spacing */
+    display: flex; /* Horizontal layout */
+    justify-content: space-around; /* Space items evenly */
+}
+
+/* Styling for individual data boxes */
+.box_data_main_content {
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical layout */
+    gap: 10px; /* Space between items */
+}
+
+/* First data box styling */
+.box1_data_main_content {
+    font-size: 40px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    border-bottom: 2px dotted black; /* Dotted black bottom border */
+}
+
+/* Second data box styling */
+.box2_data_main_content {
+    font-size: 25px; /* Medium font size */
+    font-weight: bold; /* Bold text */
+}
+
+/* Footer styling */
+footer {
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 10vh; /* 10% of viewport height */
+}
+
+/* Footer copyright section */
+#copyright {
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    padding: 5px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive styles for screens with max-width of 650px */
+@media (max-width: 650px) {
+    /* Adjust data section layout for smaller screens */
+    #data_main_content {
+        flex-direction: column; /* Vertical layout */
+        gap: 20px; /* Space between items */
+    }
+
+    /* Hide navbar links on smaller screens */
+    #navbar_links {
+        display: none;
+    }
+
+    /* Show hamburger menu container */
+    #menu_container {
+        display: block;
+    }
+
+    /* Display dropdown links on hover */
+    #menu_container:hover #hamburger_navbar_links {
+        display: flex; /* Show links in vertical layout */
+    }
+}

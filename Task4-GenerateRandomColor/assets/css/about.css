@@ -1,0 +1,143 @@
+/* Reset default margin, padding, and set box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+/* Navbar styling */
+#navbar {
+    display: flex; /* Flex layout for navbar */
+    padding: 15px; /* Inner spacing */
+    justify-content: space-around; /* Space out items evenly */
+    background-color: purple; /* Purple background */
+    color: white; /* White text color */
+}
+
+/* Navbar heading styling */
+#heading_navbar {
+    display: flex; /* Flex layout */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger menu container (hidden by default) */
+#menu_container {
+    position: relative; /* Position for dropdown functionality */
+    display: none; /* Hidden by default */
+}
+
+/* Navbar links for larger screens */
+#navbar_links {
+    display: flex; /* Horizontal layout */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    gap: 30px; /* Space between links */
+}
+
+/* Hamburger menu dropdown styling */
+#hamburger_navbar_links {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Vertical layout for links */
+    gap: 15px; /* Space between links */
+    background-color: purple; /* Purple background */
+    position: absolute; /* Absolute for dropdown positioning */
+    top: 40px; /* Distance from top */
+    right: 0; /* Align to the right */
+    padding: 10px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+    width: 150px; /* Dropdown width */
+    z-index: 1000; /* Ensure visibility over other elements */
+}
+
+/* Link styling */
+a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Flex layout for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger icon styling */
+#hamburger {
+    font-size: 25px; /* Font size for icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Body styling */
+body {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+}
+
+/* Main content styling */
+main {
+    height: 80vh; /* 80% of viewport height */
+    font-size: large; /* Larger font size */
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Main content container */
+#main_content {
+    border: 1px solid rgb(53, 53, 162); /* Border with blue color */
+    border-radius: 5px; /* Rounded corners */
+    width: 90vw; /* 90% of viewport width */
+    padding: 30px; /* Inner spacing */
+    background-color: rgb(179, 179, 254); /* Light blue background */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical layout */
+    gap: 10px; /* Space between child elements */
+}
+
+/* Heading inside main content */
+#heading_main_content {
+    font-size: 30px; /* Font size */
+    font-weight: bolder; /* Bold font */
+}
+
+/* Footer styling */
+footer {
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 10vh; /* 10% of viewport height */
+}
+
+/* Footer copyright section */
+#copyright {
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    padding: 5px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive styles for screens <= 650px */
+@media (max-width: 650px) {
+    /* Main content layout adjustment */
+    #data_main_content {
+        flex-direction: column; /* Vertical layout */
+        gap: 20px; /* Space between elements */
+    }
+
+    /* Hide navbar links on smaller screens */
+    #navbar_links {
+        display: none;
+    }
+
+    /* Display menu container for hamburger menu */
+    #menu_container {
+        display: block;
+    }
+
+    /* Show dropdown links on hover */
+    #menu_container:hover #hamburger_navbar_links {
+        display: flex; /* Show links as flex layout */
+    }
+
+    /* Adjust main height and margin for smaller screens */
+    main {
+        height: auto; /* Adjust height automatically */
+        margin: 7% 0px; /* Margin from top */
+    }
+}
